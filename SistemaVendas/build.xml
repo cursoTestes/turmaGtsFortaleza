@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="SistemaVendasBuild" default="all" basedir=".">
+
+	<description>Script para teste do sistema.</description>
+
+	
+	<!-- target default -->
+
+	<target name="all" 
+			description="Executa todos os passos necessários para testar o projeto" 
+			depends="clean, compile, test"/>
+
+	
+	<target name="test" depends="unit-test,test-report, compile"/>
+
+	<!-- targets de limpeza -->
+	<target name="clean" depends="compile-clean,test-clean"/>
+
+	<!-- targets de preparação -->
+	<target name="init">
+		<tstamp/>
+	</target>
+	
+
+	<!-- targets de compilação -->
+	<target name="compile" description="Compila o código-fonte de negocio" depends="init">
+		<mkdir dir="classes"/>
+
+		<javac destdir="classes" debug="on">
+			<classpath>
+				<fileset dir="lib">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			
+			<src path="src"/>
+			<src path="testes"/>
+		</javac>
+		<copy todir="classes">
+			<fileset dir="src">
+				<include name="**/*"/>
+				<exclude name="**/*.java"/>
+				<exclude name="**/CVS/*"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="compile-clean">
+		<delete dir="classes"/>	
+		
+	</target>
+	<target name="test-clean">
+		<delete dir="report"/>
+		<delete file="FAILED"/>
+	</target>	
+	
+	<!-- targets de teste -->
+	<target name="unit-test" description="Executa todos os testes unitários" depends="init,compile,bare-unit-test"/>
+
+	<target name="bare-unit-test">
+		<mkdir dir="report"/>
+			
+		<junit printsummary="on" fork="yes" forkmode="once" errorproperty="failed" failureproperty="failed" maxmemory="512m">		
+			<classpath>
+				<fileset dir="lib">
+					<include name="*.jar"/>
+				</fileset>
+				<path path="classes"/>
+			</classpath>
+
+			<formatter type="xml"/>
+
+			<batchtest todir="report">
+				<fileset dir="testes">
+					<include name="**/Test*.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+		<antcall target="persist-failure"/>
+	</target>
+
+	<target name="test-report" description="Produz os relatórios de teste, a partir das informações coletadas pela execução dos mesmos" depends="init">
+		<junitreport>
+			<fileset dir="report">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="noframes"/>
+		</junitreport>
+
+		<move file="junit-noframes.html" tofile="report_all.html"/>
+
+		<junitreport>
+			<fileset dir="report">
+				<include name="TEST-*UnitTest.xml"/>
+			</fileset>
+			<report format="noframes"/>
+		</junitreport>
+
+		<move file="junit-noframes.html" tofile="report_unit.html"/>	
+		
+
+		<available file="FAILED" property="failed"/>
+		<fail if="failed"><![CDATA[Testes falharam.]]></fail>
+	</target>
+
+	
+	<target name="persist-failure" if="failed">
+			<touch file="FAILED"/>
+	</target>
+		
+</project>
