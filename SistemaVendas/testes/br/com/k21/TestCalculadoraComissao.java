@@ -3,6 +3,7 @@ package br.com.k21;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class TestCalculadoraComissao {
 
@@ -11,7 +12,7 @@ public class TestCalculadoraComissao {
 		double valor_venda = 100;
 		double resultado_esperado = 5;
 		
-		double resposta = Calculadora.comissao(valor_venda);
+		double resposta = new Calculadora().comissao(valor_venda);
 		
 		assertEquals(resultado_esperado, resposta, 0.0000001);
 	}
@@ -21,7 +22,7 @@ public class TestCalculadoraComissao {
 		double valor_venda = 10000;
 		double resultado_esperado = 500;
 		
-		double resposta = Calculadora.comissao(valor_venda);
+		double resposta = new Calculadora().comissao(valor_venda);
 		
 		assertEquals(resultado_esperado, resposta, 0.0000001);
 	}
@@ -31,7 +32,7 @@ public class TestCalculadoraComissao {
 		double valor_venda = 1;
 		double resultado_esperado = 0.05;
 		
-		double resposta = Calculadora.comissao(valor_venda);
+		double resposta = new Calculadora().comissao(valor_venda);
 		
 		assertEquals(resultado_esperado, resposta, 0.0000001);
 
@@ -42,7 +43,7 @@ public class TestCalculadoraComissao {
 		double valor_venda = 100000;
 		double resultado_esperado = 6000;
 		
-		double resposta = Calculadora.comissao(valor_venda);
+		double resposta = new Calculadora().comissao(valor_venda);
 		
 		assertEquals(resultado_esperado, resposta, 0.0000001);
 	}
@@ -52,7 +53,7 @@ public class TestCalculadoraComissao {
 		double valor_venda = 200000;
 		double resultado_esperado = 12000;
 		
-		double resposta = Calculadora.comissao(valor_venda);
+		double resposta = new Calculadora().comissao(valor_venda);
 		
 		assertEquals(resultado_esperado, resposta, 0.0000001);
 	}
