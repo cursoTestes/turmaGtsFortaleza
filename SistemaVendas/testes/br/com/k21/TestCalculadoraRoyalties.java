@@ -66,7 +66,7 @@ public class TestCalculadoraRoyalties {
 
 		assertEquals(esperado, resultado, 0);
 		
-		verify(mockComissao, times(2)).comissao(valorVenda);
+		verify(mockComissao, atLeastOnce()).comissao(valorVenda);
 		
 	}
 }

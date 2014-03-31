@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema xmlns="http://tempuri.org/Schema.xsd">
+  <Produto>
+    <Id>1</Id>
+    <Nome>Bombril</Nome>
+  </Produto>
+  <ProdutoId>
+    <NextHi>10</NextHi>
+  </ProdutoId>
+
+  <Venda>
+    <IdVenda>1</IdVenda>
+    <dataVenda>2011-01-02T13:02:13.000</dataVenda>
+    <valor>100.00</valor>
+  </Venda>
+
+  <VendaVendedor>
+    <IdVendaVendedor>1</IdVendaVendedor>
+    <IdVendedor>1</IdVendedor>
+    <IdVenda>1</IdVenda>
+    <Valor>100.00</Valor>
+  </VendaVendedor>
+
+
+  <Venda>
+    <IdVenda>2</IdVenda>
+    <dataVenda>2012-01-02T13:02:13.000</dataVenda>
+    <valor>100.00</valor>
+  </Venda>
+
+  <VendaVendedor>
+    <IdVendaVendedor>2</IdVendaVendedor>
+    <IdVendedor>2</IdVendedor>
+    <IdVenda>2</IdVenda>
+    <Valor>100.00</Valor>
+  </VendaVendedor>
+ 
+  <Venda>
+    <IdVenda>3</IdVenda>
+    <dataVenda>2012-01-02T13:02:13.000</dataVenda>
+    <valor>100.00</valor>
+  </Venda>
+
+  <VendaVendedor>
+    <IdVendaVendedor>3</IdVendaVendedor>
+    <IdVendedor>2</IdVendedor>
+    <IdVenda>3</IdVenda>
+    <Valor>100.00</Valor>
+  </VendaVendedor>
+
+  <Venda>
+    <IdVenda>4</IdVenda>
+    <dataVenda>2010-01-02T13:02:13.000</dataVenda>
+    <valor>80.00</valor>
+  </Venda>
+
+  <VendaVendedor>
+    <IdVendaVendedor>4</IdVendaVendedor>
+    <IdVendedor>3</IdVendedor>
+    <IdVenda>4</IdVenda>
+    <Valor>80.00</Valor>
+  </VendaVendedor>
+
+  <Venda>
+    <IdVenda>5</IdVenda>
+    <dataVenda>2009-01-02T13:02:13.000</dataVenda>
+    <valor>50.00</valor>
+  </Venda>
+
+  <VendaVendedor>
+    <IdVendaVendedor>5</IdVendaVendedor>
+    <IdVendedor>3</IdVendedor>
+    <IdVenda>5</IdVenda>
+    <Valor>50.00</Valor>
+  </VendaVendedor>
+
+  <Venda>
+    <IdVenda>11</IdVenda>
+    <dataVenda>2014-01-02T13:02:13.000</dataVenda>
+    <valor>200.00</valor>
+  </Venda>
+
+  <VendaVendedor>
+    <IdVendaVendedor>11</IdVendaVendedor>
+    <IdVendedor>3</IdVendedor>
+    <IdVenda>11</IdVenda>
+    <Valor>50.00</Valor>
+  </VendaVendedor>
+
+  <VendaVendedor>
+    <IdVendaVendedor>12</IdVendaVendedor>
+    <IdVendedor>4</IdVendedor>
+    <IdVenda>11</IdVenda>
+    <Valor>150.00</Valor>
+  </VendaVendedor>
+  
+</Schema>
